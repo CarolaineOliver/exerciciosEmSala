@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Hello React!</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <div id="List"></div>
+    <div id="utilizandoIF"></div>
+    <div id="utilizandoFuncao"></div>
+    <div id="utilizandoProps"></div>
+
+
+
+
+    <script type="text/babel">
+     class App extends React.Component {
+        render() {
+          let x = 10
+          const myElement = <h1> I love JSX, {x}!</h1>
+          return myElement
+        }
+      }
+
+      class List extends React.Component {
+        render() {
+          const List = (
+             <ul>
+              <li>Carolaine</li>
+              <li>Oliveira</li>
+            </ul>)
+          return List
+        }
+      }
+      class UtilizandoIF extends React.Component {
+        render() {
+          let numero = 2
+          const myElement = <h1> { numero < 10 ? "Hello" : "Goodbye" } </h1>
+          return myElement
+        }
+      }
+      function UtilizandoFuncao() {
+          const myElement = <h1> Utilizando JSX com função</h1>
+          return myElement
+
+      }
+
+      function UtiliandoProps(props){
+        const text = <h2> {props.text} </h2>
+        return text
+
+      }
+
+
+      ReactDOM.render(<App />, document.getElementById('root'))
+      ReactDOM.render(<List />, document.getElementById('List'))
+      ReactDOM.render(<UtilizandoIF />, document.getElementById('utilizandoIF'))
+      ReactDOM.render(<UtilizandoFuncao />, document.getElementById('utilizandoFuncao'))
+      ReactDOM.render(<UtiliandoProps text = "Utilizando o Props"/>, document.getElementById('utilizandoProps'))
+
+
+    </script>
+  </body>
+</html>
