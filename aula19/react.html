@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Hello React!</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+/*
+      function Pessoa(props){
+        return( <h2> I am {props.name} </h2>)
+      }
+
+      
+      function Pessoa(props){
+    
+        return (<h2> I am {state.name} </h2>)
+  
+      }
+      const nome ="Carolaine"
+
+    */
+
+    class Pessoa extends React.Component
+        {
+            constructor(props){
+                super(props)
+                this.state = {nome: props.nome}
+            }
+
+            changeName = (a, b) =>
+            {
+                alert(b.type)
+                if(a ==1)
+                {
+                    this.setState({nome: "Rafael"});
+                }
+                else if(a == 2)
+                {
+                    this.setState({nome: "Nunes"});
+                }
+                else
+                {
+                    this.setState({nome: "Lima"});
+                }
+            }
+
+          render()
+            {
+                return (<div>
+                        <h2> meu nome é {this.state.nome} </h2>
+
+                        <button type="button" onClick = {(event) => this.changeName(1, event)}> Rafael</button>
+                        <br/>
+                        <button type="button" onClick = {(event) => this.changeName(2, event)}> Nunes</button>
+                        <br/>
+                        <button type="button" onClick = {(event) => this.changeName(3, event)}> Lima</button>
+                        
+                        </div>)
+            }
+        }
+      
+        const nome = "Rafael"
+        ReactDOM.render(<Pessoa nome= {nome} />, document.getElementById('root'))
+
+    </script>
+  </body>
+</html>
